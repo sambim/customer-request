@@ -48,3 +48,25 @@ body {
 .btn:active {
   transform: scale(0.98);
 }
+
+.request {
+  background-color: white;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.2);
+}
+
+.request.processed {
+  border-left: green 5px solid;
+}
+
+.request.unprocessed {
+  border-left: red 5px solid;
+}
+
+.request h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
