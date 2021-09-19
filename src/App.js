@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header title="Customer Request" showForm={showForm} onClickAdd={onClickButton}/>
+      <Header title="Customer Request" showForm={showForm} onClickButton={onClickButton}/>
       {showForm && (<RequestForm />)}
       <Requests />
       {/* <Posts /> */}
