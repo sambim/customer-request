@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const RequestForm = () => {
+const RequestForm = ({addRequest}) => {
 
     const [request, setRequest] = useState("");
     const [day, setDay] = useState("");
@@ -8,7 +8,22 @@ const RequestForm = () => {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        alert(request + day + process);
+        
+        if(!request){
+            alert("Please add a request");
+            return;
+        }
+
+        const data = {
+            text: request,
+            date: day,
+            processed: process
+        }
+        addRequest(data);
+
+        setRequest("");
+        setDay("");
+        setProcess(false);
     }
 
     const requestChange = (e) =>  setRequest(e.target.value);
