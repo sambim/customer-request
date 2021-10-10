@@ -44,6 +44,10 @@ const App = () => {
 
   const onClickButton = () => setShowForm(!showForm)
 
+  const onDeleteTask = (id) => {
+    setReq(req.filter(r => r.id !== id))
+  }
+
   const addRequest = (data) => {
     const newData = {...data, id: req.length + 1}
     setReq([...req, newData])
@@ -54,7 +58,8 @@ const App = () => {
     <div className="container">
       <Header title="Customer Request" showForm={showForm} onClickButton={onClickButton}/>
       {showForm && (<RequestForm addRequest={addRequest}/>)}
-      <Requests requests={req}/>
+      <Requests requests={req} onDeleteTask={onDeleteTask}/>
+      {req.length === 0 && <div>No Request to process</div>}
       {/* <Posts /> */}
     </div>
   )
